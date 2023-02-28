@@ -92,7 +92,7 @@ export default observer(function ActivityForm() {
                         <MyTextInput placeholder='Venue' name='venue' />
                         <Button
                             disabled={isSubmitting || !dirty || !isValid}
-                            loading={loading}
+                            loading={isSubmitting}
                             floated='right' positive
                             type='submit'
                             content='Submit' />
