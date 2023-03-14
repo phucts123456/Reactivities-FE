@@ -49,15 +49,7 @@ export default observer(function ActivityForm() {
 
             updateActivity(activity).then(() => navigate(`/activities/${activity.id}`));
         }
-        activity?.id ? updateActivity(activity) : createActivity(activity!);
-
     }
-
-    function handleChange(event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
-        const { name, value } = event.target;
-        setActivity({ ...activity, [name]: value })
-    }
-
     return (
         <Segment clearing>
             <Header content='Activity Details' sub color="teal" />
