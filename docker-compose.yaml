@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  webapp:
+    container_name: cakecurious-webapp
+    build:
+      context: .
+      dockerfile: dockerfile.development
+    volumes:
+      - ./:/app:delegated
+      - /app/node_modules
+    ports:
+      - 3000:3000
