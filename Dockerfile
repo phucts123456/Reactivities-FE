@@ -6,6 +6,7 @@ WORKDIR /app
 # Copy app files
 # Copy app dependencies to container
 COPY ./package.json ./
+COPY . .
 # Add `/app/node_modules/.bin` to $PATH
 ENV PATH /app/node_modules/.bin:$PATH
 # Install dependencies
