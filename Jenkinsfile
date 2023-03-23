@@ -15,7 +15,7 @@ pipeline {
     stage('Build') {
       steps {
         script{
-         sh 'docker build -t 37180/reactivities-fe:${BUILD_NUMBER} .'
+         sh 'docker build -t 37180/reactivities-frontend:${BUILD_NUMBER} .'
         }
       }
     }
@@ -26,7 +26,7 @@ pipeline {
     }
     stage('Push') {
       steps {
-        sh 'docker push 37180/reactivities-fe'
+        sh 'docker push 37180/reactivities-frontend'
       }
     }  
     stage('Pull and Run Image') {
