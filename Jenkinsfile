@@ -33,7 +33,7 @@ pipeline {
         steps {
             sshagent(['ssh-remote-reactivities']) {
                 sh 'ssh -o StrictHostKeyChecking=no -l phuchoquang ${REACTIVITIES_SERVER} docker rm --force client'
-                sh 'ssh -o StrictHostKeyChecking=no -l phuchoquang ${REACTIVITIES_SERVER} docker image rm --force 37180/reactivities-frontend:${BUILD_NUMBER}'
+                sh 'ssh -o StrictHostKeyChecking=no -l phuchoquang ${REACTIVITIES_SERVER} docker image rm --force 37180/reactivities-frontend:${BUILD_NUMBER-1}'
                  sh 'ssh -o StrictHostKeyChecking=no -l phuchoquang ${REACTIVITIES_SERVER} docker pull 37180/reactivities-frontend:${BUILD_NUMBER}'
                  sh 'ssh -o StrictHostKeyChecking=no -l phuchoquang ${REACTIVITIES_SERVER} docker run -p 3000:3000 -d --rm --name client --network reactivities 37180/reactivities-frontend:${BUILD_NUMBER}'
                 
