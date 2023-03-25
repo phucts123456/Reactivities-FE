@@ -18,7 +18,7 @@ export default class CommentStore {
             this.hubConnection = new HubConnectionBuilder()
                 .withUrl(process.env.REACT_APP_CHAT_URL + '?activityId=' + activityId, {
                     //skipNegotiation: true,
-                    transport: HttpTransportType.WebSockets,
+                    transport: HttpTransportType.ServerSentEvents,
                     accessTokenFactory: () => store.userStore.user?.token!
                 })
                 .withAutomaticReconnect()
