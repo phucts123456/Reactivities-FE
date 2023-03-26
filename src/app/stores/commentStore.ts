@@ -16,10 +16,10 @@ export default class CommentStore {
     createHubConnection = (activityId: string) => {
         if (store.activityStore.selectedActivity) {
             this.hubConnection = new HubConnectionBuilder()
-                .withUrl(process.env.REACT_APP_CHAT_URL + '?activityId=' + activityId, {
+            .withUrl(process.env.REACT_APP_CHAT_URL + '?activityId=' + activityId, {
+                    accessTokenFactory: () => store.userStore.user?.token!,
                     skipNegotiation: true,
-                    transport: HttpTransportType.WebSockets,
-                    accessTokenFactory: () => store.userStore.user?.token!
+                    transport: HttpTransportType.ServerSentEvents,
                 })
                 .withAutomaticReconnect()
                 .configureLogging(LogLevel.Information)
