@@ -17,7 +17,7 @@ export default class CommentStore {
         if (store.activityStore.selectedActivity) {
             this.hubConnection = new HubConnectionBuilder()
             .withUrl(process.env.REACT_APP_CHAT_URL + '?activityId=' + activityId, {
-                transport: HttpTransportType.ServerSentEvents,
+                transport: HttpTransportType.WebSockets,
                 //skipNegotiation: true, //work with websoket only
                 accessTokenFactory: () => store.userStore.user?.token!,
                 })
